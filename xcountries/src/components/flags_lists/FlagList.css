@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em; /* Added padding to give some spacing around the container */
+}
+
+.card {
+    border: 0.3em solid rgba(0, 0, 0, 0.5);
+    width: calc(25% - 2em); /* Calculating 25% width for four cards with some margin */
+    height:15em;
+    margin: 1em; /* Adjusted margin to provide spacing between cards */
+    padding: 1em;
+    border-radius: 0.5em;
+    background-color: #fff;
+    box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.2);
+}
+
+h6 {
+    font-size: large;
+    font-weight: bolder;
+}
