@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './FlagList.css'
 function FlagsList() {
     const [countries, setCountries] = useState([]);
+    const[search,setSearch]=useState('');
 
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
@@ -13,10 +14,13 @@ function FlagsList() {
 
     return (
         <div className='container'>
-            {countries.map((country, id) => (
-                <div className="card" key={id}>
-                    <img src={country.flags.png} alt={country.name.common} style={{width:'15em',height:'10em'}} />
-                    <h6>{country.name.common}</h6>
+            <div className="card" >
+             <input type="text" value={search} onChange={(e)=>setSearch(e.target.value.toLowerCase())} placeholder='Enter Countries to Search...' />
+            </div>
+            {countries.filter((name)=>name.name.common.toLowerCase().includes(search)).map((country, id) => (
+                <div className="countryCard" key={id}>
+                    <img src={country.flags.png} alt={country.name.common} style={{width:'9em',height:'7em'}} />
+                    <span>{country.name.common}</span>
                 </div>
             ))}
         </div>
